@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-labelledby="title description">
+  <title id="title">Lake Victoria at sunset</title>
+  <desc id="description">A warm sunset over blue water, with green hills and tropical trees along the shore.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="#f8d995"/>
+      <stop offset="1" stop-color="#f5a46f"/>
+    </linearGradient>
+    <linearGradient id="water" x2="0" y2="1">
+      <stop stop-color="#4f9b9b"/>
+      <stop offset="1" stop-color="#176b78"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="300" fill="url(#sky)"/>
+  <circle cx="680" cy="145" r="62" fill="#fff0bd"/>
+  <path d="M0 260 155 167l115 88 135-112 142 122 142-115 211 116v54H0Z" fill="#71916e"/>
+  <path d="M0 282c122-20 204 18 326 0s206-20 318 0 167 15 256-1v199H0Z" fill="url(#water)"/>
+  <path d="M0 322c117-13 221 17 338 1s224-15 338 1 152 10 224 0M0 379c119-12 204 12 328 0s222-12 342 2 157 8 230-1" fill="none" stroke="#bce3d6" stroke-linecap="round" stroke-width="8" opacity=".65"/>
+  <path d="M0 420c92-39 155-12 223-34 61-20 118-2 176 28v66H0Zm900-48c-93-45-148-25-205-6-39 13-65 25-92 43v45h297Z" fill="#1d5b4b"/>
+  <g fill="#164b40">
+    <path d="M95 316h14v100H95zM102 304c-32-14-36-44-35-57 23 3 39 15 42 39 7-27 28-42 51-43-4 29-20 50-52 61Z"/>
+    <path d="M765 294h12v94h-12zM771 283c-26-12-29-36-28-47 20 2 33 12 36 31 5-22 21-34 39-35-3 23-16 40-43 49Z"/>
+  </g>
+</svg>
