@@ -1,0 +1,45 @@
+@media (min-width: 42rem) {
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.8rem max(1.5rem, calc((100% - 76rem) / 2));
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .navigation,
+  .navigation.open {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+  }
+
+  .navigation a {
+    padding: 0.55rem 0.8rem;
+  }
+
+  main {
+    padding-top: 2.5rem;
+  }
+
+  .temple-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .temple-card img {
+    height: 17rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .temple-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
