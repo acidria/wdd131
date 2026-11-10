@@ -1,23 +1,15 @@
-const temperatureC = 8;
-const windSpeedKmh = 10;
+const temperature = 8;
+const windSpeed = 10;
 
 function calculateWindChill(temperature, windSpeed) {
   return 13.12 + 0.6215 * temperature - 11.37 * windSpeed ** 0.16 + 0.3965 * temperature * windSpeed ** 0.16;
 }
 
-function displayPageDetails() {
-  const currentYear = document.querySelector("#current-year");
-  const lastModified = document.querySelector("#last-modified");
-  const windChill = document.querySelector("#wind-chill");
+document.querySelector("#current-year").textContent = new Date().getFullYear();
+document.querySelector("#last-modified").textContent = document.lastModified;
 
-  currentYear.textContent = new Date().getFullYear();
-  lastModified.textContent = document.lastModified;
-
-  if (temperatureC <= 10 && windSpeedKmh > 4.8) {
-    windChill.textContent = `${calculateWindChill(temperatureC, windSpeedKmh).toFixed(1)} °C`;
-  } else {
-    windChill.textContent = "N/A";
-  }
+if (temperature <= 10 && windSpeed > 4.8) {
+  document.querySelector("#wind-chill").textContent = calculateWindChill(temperature, windSpeed).toFixed(1) + " °C";
+} else {
+  document.querySelector("#wind-chill").textContent = "N/A";
 }
-
-displayPageDetails();
