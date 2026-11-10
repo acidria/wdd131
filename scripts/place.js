@@ -11,7 +11,6 @@ function displayPageDetails() {
   const windChill = document.querySelector("#wind-chill");
 
   currentYear.textContent = new Date().getFullYear();
-  lastModified.dateTime = new Date(document.lastModified).toISOString();
   lastModified.textContent = document.lastModified;
 
   if (temperatureC <= 10 && windSpeedKmh > 4.8) {
