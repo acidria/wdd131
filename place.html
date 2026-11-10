@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover Madagascar, from the Avenue of the Baobabs to the highlands around Antananarivo.">
+  <meta name="author" content="Acidri Abdulrazak">
+  <title>Madagascar | WDD 131</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/place.css">
+  <script src="scripts/place.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <p class="eyebrow">An island unlike anywhere else</p>
+    <h1>Madagascar</h1>
+    <p class="header-subtitle">A world of its own in the Indian Ocean</p>
+  </header>
+
+  <main>
+    <section class="destination" aria-label="Madagascar destination guide">
+      <div class="hero">
+        <picture>
+          <source media="(max-width: 42rem)" srcset="images/madagascar-baobabs-mobile.webp">
+          <img
+            src="images/madagascar-baobabs-wide.webp"
+            alt="The Avenue of the Baobabs near Morondava at sunrise"
+            width="1024"
+            height="574"
+            fetchpriority="high">
+        </picture>
+        <p class="hero-caption">The Avenue of the Baobabs, near Morondava</p>
+      </div>
+
+      <div class="info-grid">
+        <section class="info-card data-card" aria-labelledby="data-heading">
+          <h2 id="data-heading">At a glance</h2>
+          <dl>
+            <div><dt>Capital</dt><dd>Antananarivo</dd></div>
+            <div><dt>Area</dt><dd>587,041 km²</dd></div>
+            <div><dt>Population</dt><dd>About 30 million</dd></div>
+            <div><dt>Languages</dt><dd>Malagasy and French</dd></div>
+            <div><dt>Region</dt><dd>Indian Ocean, off East Africa</dd></div>
+          </dl>
+        </section>
+
+        <section class="info-card weather-card" aria-labelledby="weather-heading">
+          <h2 id="weather-heading">
+            Weather
+            <img class="weather-icon-mobile" src="images/weather-partly-cloudy.svg" alt="" width="34" height="34">
+          </h2>
+          <p class="weather-location">Antananarivo · sample conditions</p>
+          <dl>
+            <div><dt>Temperature</dt><dd><span id="temperature">8</span> °C</dd></div>
+            <div><dt>Wind speed</dt><dd><span id="wind-speed">10</span> km/h</dd></div>
+            <div><dt>Wind chill</dt><dd id="wind-chill">Calculating…</dd></div>
+          </dl>
+          <p class="weather-note">Static example values for this assignment.</p>
+        </section>
+      </div>
+    </section>
+
+    <p class="photo-credit">
+      Photo: <a href="https://commons.wikimedia.org/wiki/File:Avenue_of_the_baobabs_at_sunrise_blue_and_gold_madagascar.jpg" target="_blank" rel="noopener noreferrer">Paolo Crosetto</a>,
+      <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a>
+      (cropped and resized).
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="current-year"></span> Acidri Abdulrazak | WDD 131</p>
+    <p>Last modified: <time id="last-modified"></time></p>
+  </footer>
+</body>
+</html>
