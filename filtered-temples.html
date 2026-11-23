@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore temples around the world and filter them by age and size.">
+  <meta name="author" content="Acidri Abdulrazak">
+  <title>Filtered Temple Album | WDD 131</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/filtered-temples.css">
+  <link rel="stylesheet" href="styles/filtered-temples-large.css">
+  <script src="scripts/filtered-temples.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-top">
+      <a class="site-title" href="#temples">Temple Album</a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="menu-icon" aria-hidden="true">☰</span>
+      </button>
+    </div>
+    <nav aria-label="Main navigation">
+      <ul class="navigation" id="primary-navigation">
+        <li><a href="#temples" data-filter="home" aria-current="page">Home</a></li>
+        <li><a href="#temples" data-filter="old">Old</a></li>
+        <li><a href="#temples" data-filter="new">New</a></li>
+        <li><a href="#temples" data-filter="large">Large</a></li>
+        <li><a href="#temples" data-filter="small">Small</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="temples">
+    <h1>Temples Around the World</h1>
+    <p class="filter-status" id="filter-status" role="status" aria-live="polite"></p>
+    <div class="temple-grid" id="temple-grid"></div>
+    <p class="image-note">Temple photographs are provided by The Church of Jesus Christ of Latter-day Saints and ChurchofJesusChristTemples.org.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="current-year"></span> Acidri Abdulrazak | Entebbe, Uganda</p>
+    <p>Last modified: <span id="last-modified"></span></p>
+  </footer>
+</body>
+</html>
