@@ -66,7 +66,7 @@ const temples = [
   {
     templeName: "Salt Lake Utah",
     location: "Salt Lake City, Utah, United States",
-    dedicated: "1893, May, 21",
+    dedicated: "1893, April, 6",
     area: 382207,
     imageUrl:
       "https://churchofjesuschristtemples.org/assets/img/temples/salt-lake-temple/salt-lake-temple-75244-main.jpg"
@@ -110,7 +110,7 @@ function displayTemples(templeList) {
       "<h2>" + temple.templeName + "</h2>" +
       "<p>Location: " + temple.location + "</p>" +
       "<p>Dedicated: " + formatDedicatedDate(temple.dedicated) + "</p>" +
-      "<p>Area: " + temple.area + " square feet</p>" +
+      "<p>Area: " + temple.area.toLocaleString() + " square feet</p>" +
       "</figcaption>" +
       "</figure>";
   }
