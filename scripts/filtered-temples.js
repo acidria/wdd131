@@ -89,77 +89,89 @@ const filterStatus = document.querySelector("#filter-status");
 const filterLinks = navigation.querySelectorAll("[data-filter]");
 
 function getTempleYear(temple) {
-  return Number(temple.dedicated.slice(0, 4));
+  return parseInt(temple.dedicated.slice(0, 4), 10);
 }
 
 function formatDedicatedDate(dedicated) {
-  const [year, month, day] = dedicated.split(", ");
-  return `${month} ${Number(day)}, ${year}`;
+  const dateParts = dedicated.split(", ");
+  return dateParts[1] + " " + dateParts[2] + ", " + dateParts[0];
 }
 
-function createTempleCard(temple) {
-  const card = document.createElement("figure");
-  card.className = "temple-card";
+function displayTemples(templeList) {
+  let templeHTML = "";
 
-  const image = document.createElement("img");
-  image.src = temple.imageUrl;
-  image.alt = temple.templeName;
-  image.width = 400;
-  image.height = 250;
-  image.loading = "lazy";
+  for (let i = 0; i < templeList.length; i++) {
+    const temple = templeList[i];
 
-  const caption = document.createElement("figcaption");
-  const name = document.createElement("h2");
-  name.textContent = temple.templeName;
+    templeHTML +=
+      '<figure class="temple-card">' +
+      '<img src="' + temple.imageUrl + '" alt="' + temple.templeName + '" width="400" height="250" loading="lazy">' +
+      "<figcaption>" +
+      "<h2>" + temple.templeName + "</h2>" +
+      "<p>Location: " + temple.location + "</p>" +
+      "<p>Dedicated: " + formatDedicatedDate(temple.dedicated) + "</p>" +
+      "<p>Area: " + temple.area + " square feet</p>" +
+      "</figcaption>" +
+      "</figure>";
+  }
 
-  const location = document.createElement("p");
-  location.textContent = `Location: ${temple.location}`;
-
-  const dedication = document.createElement("p");
-  dedication.textContent = `Dedicated: ${formatDedicatedDate(temple.dedicated)}`;
-
-  const area = document.createElement("p");
-  area.textContent = `Area: ${temple.area.toLocaleString()} square feet`;
-
-  caption.append(name, location, dedication, area);
-  card.append(image, caption);
-  return card;
+  templeGrid.innerHTML = templeHTML;
+  filterStatus.textContent = "Showing " + templeList.length + " temples.";
 }
 
 function getFilteredTemples(filter) {
-  switch (filter) {
-    case "old":
-      return temples.filter((temple) => getTempleYear(temple) < 1900);
-    case "new":
-      return temples.filter((temple) => getTempleYear(temple) > 2000);
-    case "large":
-      return temples.filter((temple) => temple.area > 90000);
-    case "small":
-      return temples.filter((temple) => temple.area < 10000);
-    default:
-      return temples;
+  let filteredTemples = temples;
+
+  if (filter === "old") {
+    filteredTemples = temples.filter(function (temple) {
+      return getTempleYear(temple) < 1900;
+    });
+  } else if (filter === "new") {
+    filteredTemples = temples.filter(function (temple) {
+      return getTempleYear(temple) > 2000;
+    });
+  } else if (filter === "large") {
+    filteredTemples = temples.filter(function (temple) {
+      return temple.area > 90000;
+    });
+  } else if (filter === "small") {
+    filteredTemples = temples.filter(function (temple) {
+      return temple.area < 10000;
+    });
+  }
+
+  return filteredTemples;
+}
+
+function filterTemples(filter) {
+  const filteredTemples = getFilteredTemples(filter);
+  displayTemples(filteredTemples);
+
+  for (let i = 0; i < filterLinks.length; i++) {
+    if (filterLinks[i].getAttribute("data-filter") === filter) {
+      filterLinks[i].setAttribute("aria-current", "page");
+    } else {
+      filterLinks[i].removeAttribute("aria-current");
+    }
   }
 }
 
-function displayTemples(filter = "home") {
-  const filteredTemples = getFilteredTemples(filter);
-  templeGrid.replaceChildren(...filteredTemples.map(createTempleCard));
-  filterStatus.textContent = `Showing ${filteredTemples.length} ${filteredTemples.length === 1 ? "temple" : "temples"}.`;
-
-  filterLinks.forEach((link) => {
-    if (link.dataset.filter === filter) {
-      link.setAttribute("aria-current", "page");
-    } else {
-      link.removeAttribute("aria-current");
-    }
-  });
+function closeMenu() {
+  navigation.classList.remove("show");
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "Open navigation menu");
+  menuIcon.textContent = "☰";
 }
 
 function toggleMenu() {
-  const isOpen = navigation.classList.toggle("show");
-  menuButton.setAttribute("aria-expanded", String(isOpen));
-  menuButton.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
-  menuIcon.textContent = isOpen ? "×" : "☰";
+  if (navigation.classList.contains("show")) {
+    closeMenu();
+  } else {
+    navigation.classList.add("show");
+    menuButton.setAttribute("aria-expanded", "true");
+    menuButton.setAttribute("aria-label", "Close navigation menu");
+    menuIcon.textContent = "×";
+  }
 }
 
 function displayFooterDates() {
@@ -168,18 +180,21 @@ function displayFooterDates() {
   document.querySelector("#last-modified").textContent = document.lastModified;
 }
 
-menuButton.addEventListener("click", toggleMenu);
-navigation.addEventListener("click", (event) => {
-  const link = event.target.closest("[data-filter]");
-  if (!link) return;
-
+function handleFilterClick(event) {
   event.preventDefault();
-  displayTemples(link.dataset.filter);
+  const selectedFilter = event.currentTarget.getAttribute("data-filter");
+  filterTemples(selectedFilter);
 
   if (navigation.classList.contains("show")) {
-    toggleMenu();
+    closeMenu();
   }
-});
+}
 
-displayTemples();
+menuButton.addEventListener("click", toggleMenu);
+
+for (let i = 0; i < filterLinks.length; i++) {
+  filterLinks[i].addEventListener("click", handleFilterClick);
+}
+
+filterTemples("home");
 displayFooterDates();
