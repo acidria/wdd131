@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #1f2937;
+    background-color: #f4f6f9;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header,
+footer {
+    padding: 1rem;
+    color: #ffffff;
+    background-color: #0f172a;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.25rem;
+}
+
+header p,
+footer p {
+    margin: 0.25rem;
+}
+
+main {
+    width: 90%;
+    max-width: 760px;
+    margin: 2rem auto;
+}
+
+.project-summary,
+.card {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.project-summary h2,
+.card h2 {
+    margin-top: 0;
+    color: #0f172a;
+}
+
+button {
+    margin-top: 0.75rem;
+    padding: 0.65rem 1rem;
+    border: 0;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: #1d4ed8;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1e40af;
+}
+
+button:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+.notice {
+    margin-top: 1.25rem;
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    main {
+        width: 94%;
+        margin: 1.25rem auto;
+    }
+
+    .project-summary,
+    .card {
+        padding: 1rem;
+    }
+}

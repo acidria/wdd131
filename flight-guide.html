@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A beginner-friendly introduction to flight instruments and altimetry.">
+    <title>Basic Flight Instruments Guide</title>
+    <link rel="stylesheet" href="styles/flight%20guide.css">
+    <script src="scripts/flight-guide.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Basic Flight Instruments Guide</h1>
+        <p>Week 4 Project Subject and Starter Prototype</p>
+    </header>
+
+    <main>
+        <section class="project-summary" aria-labelledby="project-title">
+            <h2 id="project-title">Project Plan</h2>
+            <p><strong>Subject:</strong> Basic Flight Instruments and Altimetry Guide</p>
+            <p><strong>Content:</strong> The planned site will introduce the airspeed indicator, altimeter, attitude indicator, and heading indicator. It will also explain the difference between QNH and standard pressure at a general level. A later version can include an interactive topic selector or unit converter.</p>
+            <p><strong>Reason:</strong> Aviation interests me, and these topics are easy to organize into clear sections. They will let me practice semantic HTML, responsive CSS, and JavaScript events without making the project too complicated.</p>
+        </section>
+
+        <section class="card" aria-labelledby="altimeter-title">
+            <h2 id="altimeter-title">Altimeter Learning Tip</h2>
+            <p id="status-text" aria-live="polite">Select the button to read a general fact about altimeters.</p>
+            <button id="tip-btn" type="button">Show Altimeter Tip</button>
+            <p class="notice">This page is for general learning only. It is not flight instruction or operational guidance.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Flight Basics Project</p>
+    </footer>
+</body>
+</html>
