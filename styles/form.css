@@ -38,7 +38,8 @@ body {
 }
 
 main {
-    width: min(100% - 32px, 620px);
+    width: 90%;
+    max-width: 620px;
     margin: 32px auto;
     flex: 1;
 }
@@ -49,7 +50,7 @@ main {
     border: 1px solid #d5dfda;
     border-radius: 12px;
     background: white;
-    box-shadow: 0 8px 24px rgb(22 75 80 / 8%);
+    box-shadow: 0 8px 24px rgba(22, 75, 80, 0.08);
 }
 
 .page-intro {
@@ -69,7 +70,7 @@ h1 {
     margin: 0;
     color: #164b50;
     font-family: "Roboto Slab", Georgia, serif;
-    font-size: clamp(1.7rem, 6vw, 2.2rem);
+    font-size: 1.8rem;
     line-height: 1.2;
 }
 
@@ -214,7 +215,7 @@ a:focus-visible {
 }
 
 .confirmation-card {
-    padding: clamp(26px, 7vw, 48px);
+    padding: 26px;
     text-align: center;
 }
 
@@ -250,6 +251,14 @@ a:focus-visible {
 @media (min-width: 600px) {
     .form-card {
         padding: 34px 40px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .confirmation-card {
+        padding: 48px;
     }
 
     .checkbox-options {

@@ -26,28 +26,43 @@ const products = [
     }
 ];
 
-const productSelect = document.getElementById("product-name");
+function addProductOptions() {
+    const productSelect = document.getElementById("product-name");
 
-if (productSelect) {
-    products.forEach((product) => {
-        const option = document.createElement("option");
-        option.value = product.id;
-        option.textContent = product.name;
-        productSelect.appendChild(option);
+    if (productSelect) {
+        for (let i = 0; i < products.length; i++) {
+            const product = products[i];
+            const option = document.createElement("option");
+            option.value = product.id;
+            option.textContent = product.name;
+            productSelect.appendChild(option);
+        }
+    }
+}
+
+function updateReviewCount() {
+    const reviewCountElement = document.getElementById("review-count");
+
+    if (reviewCountElement) {
+        let reviewCount = Number(localStorage.getItem("reviewCount")) || 0;
+
+        if (localStorage.getItem("reviewSubmitted") === "true") {
+            reviewCount++;
+            localStorage.setItem("reviewCount", reviewCount);
+            localStorage.removeItem("reviewSubmitted");
+        }
+
+        reviewCountElement.textContent = reviewCount;
+    }
+}
+
+const reviewForm = document.querySelector("form");
+
+if (reviewForm) {
+    reviewForm.addEventListener("submit", function () {
+        localStorage.setItem("reviewSubmitted", "true");
     });
 }
 
-const reviewCountElement = document.getElementById("review-count");
-
-if (reviewCountElement) {
-    const submittedReview = new URLSearchParams(window.location.search);
-    const completedReview = ["product", "rating", "installation-date"].every((field) => submittedReview.has(field) && submittedReview.get(field));
-    const previousCount = Number(localStorage.getItem("reviewCount") || 0);
-    const reviewCount = completedReview ? previousCount + 1 : previousCount;
-
-    if (completedReview) {
-        localStorage.setItem("reviewCount", reviewCount);
-    }
-
-    reviewCountElement.textContent = reviewCount;
-}
+addProductOptions();
+updateReviewCount();
