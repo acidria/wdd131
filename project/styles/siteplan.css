@@ -136,6 +136,11 @@ main {
   font-size: 18px;
 }
 
+.color-card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
 .color-card code {
   display: block;
   margin: 4px 0;
@@ -147,8 +152,16 @@ main {
   color: var(--white);
 }
 
+.forest h3 {
+  color: var(--white);
+}
+
 .gold {
   background-color: var(--warm-gold);
+  color: var(--charcoal);
+}
+
+.gold h3 {
   color: var(--charcoal);
 }
 
@@ -157,8 +170,16 @@ main {
   color: var(--charcoal);
 }
 
+.cream h3 {
+  color: var(--charcoal);
+}
+
 .charcoal {
   background-color: var(--charcoal);
+  color: var(--white);
+}
+
+.charcoal h3 {
   color: var(--white);
 }
 
